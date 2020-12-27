@@ -1,0 +1,28 @@
+body {
+    background-color: antiquewhite;
+    background-image: url("../img/bg-pattern.png");
+    background-size: cover;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+p {
+    font-size: 2rem;
+}
+
+.spacer {
+    height: 5%;
+}
+
+/*HEADER Start*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#time {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 2em;
+}
