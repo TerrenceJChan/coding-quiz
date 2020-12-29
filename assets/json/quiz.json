@@ -1,0 +1,90 @@
+[
+    {
+        "key": 1,
+        "question": "Commonly used data types do not include:",
+        "answers": [
+            [
+                "Strings",
+                false
+            ],
+            [
+                "Booleans",
+                false
+            ],
+            [
+                "Alerts",
+                true
+            ],
+            [
+                "Numbers",
+                false
+            ]
+        ]
+    },
+    {
+        "key": 2,
+        "question": "Arrays in JavaScript can be used to store what information?",
+        "answers": [
+            [
+                "Numbers and Strings",
+                false
+            ],
+            [
+                "Other Arrays",
+                false
+            ],
+            [
+                "Booleans",
+                false
+            ],
+            [
+                "All of the Above",
+                true
+            ]
+        ]
+    },
+    {
+        "key": 3,
+        "question": "String values must be enclosed within what when being assigned variables.",
+        "answers": [
+            [
+                "Commas",
+                false
+            ],
+            [
+                "Curly Brackets",
+                false
+            ],
+            [
+                "Quotes",
+                true
+            ],
+            [
+                "Parenthesis",
+                false
+            ]
+        ]
+    },
+    {
+        "key": 4,
+        "question": "Commonly used data types do not include:",
+        "answers": [
+            [
+                "JavaScript",
+                false
+            ],
+            [
+                "terminal / bash",
+                false
+            ],
+            [
+                "for loops",
+                false
+            ],
+            [
+                "console.log",
+                true
+            ]
+        ]
+    }
+]
