@@ -1,4 +1,4 @@
-var mainMenuFile = "./includes/main-menu.html";
+var mainMenuFile = "./assets/includes/main-menu.html";
 
 var mainPopulate = function (file) {
     fetch(file)
