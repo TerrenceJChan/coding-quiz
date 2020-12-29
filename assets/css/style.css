@@ -1,13 +1,27 @@
 body {
     background-color: antiquewhite;
     background-image: url("../img/bg-pattern.png");
-    background-size: cover;
+    /*Background image credits to Tomislava Babić on toptal.com*/
+    background-repeat: repeat;
     margin-left: 3%;
     margin-right: 3%;
 }
 
 p {
     font-size: 2rem;
+}
+
+.btn {
+    background-color: tan;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 2em;
+    margin: 15px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .spacer {
@@ -26,3 +40,30 @@ header {
     margin-bottom: auto;
     font-size: 2em;
 }
+
+/*HEADER End*/
+
+/*MAIN-MENU Start*/
+
+#main {
+    text-align: center;
+}
+
+#start, #hiscores {
+    display: inline-block;
+}
+
+/*MAIN-MENU End*/
+
+/*FOOTER Start*/
+
+footer {
+    position: fixed;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 3%;
+}
+
+/*FOOTER End*/
