@@ -1,6 +1,6 @@
 [
     {
-        "key": 1,
+        "key": 0,
         "question": "Commonly used data types do not include:",
         "answers": [
             [
@@ -22,7 +22,7 @@
         ]
     },
     {
-        "key": 2,
+        "key": 1,
         "question": "Arrays in JavaScript can be used to store what information?",
         "answers": [
             [
@@ -44,7 +44,7 @@
         ]
     },
     {
-        "key": 3,
+        "key": 2,
         "question": "String values must be enclosed within what when being assigned variables.",
         "answers": [
             [
@@ -66,7 +66,7 @@
         ]
     },
     {
-        "key": 4,
+        "key": 3,
         "question": "Commonly used data types do not include:",
         "answers": [
             [
