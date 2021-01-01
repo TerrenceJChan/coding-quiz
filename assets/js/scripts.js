@@ -4,7 +4,7 @@ var quizQuestions = null;
 var questionKey = 0;
 
 // Loads JSON
-var loadJSON = function (file) {
+function loadJSON(file) {
     fetch(file)
         .then(function (resp) {
             return resp.json();
@@ -15,7 +15,7 @@ var loadJSON = function (file) {
 }
 
 // Reads html files and populates the main section on the webpage.
-var mainPopulate = function (file, callback) {
+function mainPopulate(file, callback, callbackArgument) {
     fetch(file)
         .then(function (resp) {
             return resp.text();
@@ -24,19 +24,19 @@ var mainPopulate = function (file, callback) {
             document.getElementById('main').innerHTML = data;
 
             if (callback !== null) {
-                callback();
+                callback(callbackArgument);
             }
         })
 }
 
 // Initialization
 loadJSON("./assets/json/quiz.json");
-mainPopulate(mainMenuFile, null);
+mainPopulate(mainMenuFile, null, null);
 
 // Quiz populate and countdown.
 var quiz = function () {
     let countdown = 15;
-    mainPopulate(quizFile, quizPopulate);
+    mainPopulate(quizFile, quizPopulate, answer);
 
     var timer = setInterval(function () {
         if (countdown == 10) {
@@ -63,9 +63,12 @@ var quizPopulate = function () {
 }
 
 var answer = function () {
-    document.addEventListener('click', event => {
-        let target = event.target.id;
-        alert(target);
-    })
+    let correctAnswer = document.getElementsByClassName('btn-answer');
+    for (i = 0; i < 4; i++) {
+        correctAnswer[i].addEventListener('click', checkCorrect ());
+    }
 }
 
+function checkCorrect() {
+    console.log(this);
+}
