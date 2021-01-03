@@ -2,6 +2,7 @@ var mainMenuFile = "./assets/includes/main-menu.html";
 var quizFile = "./assets/includes/quiz.html";
 var quizQuestions = null;
 var questionKey = 0;
+var countdown = 999;
 
 // Loads JSON
 function loadJSON(file) {
@@ -35,7 +36,6 @@ mainPopulate(mainMenuFile, null);
 
 // Quiz populate and countdown.
 var quiz = function () {
-    let countdown = 15;
     mainPopulate(quizFile, quizPopulate);
 
     var timer = setInterval(function () {
@@ -60,5 +60,14 @@ var quizPopulate = function () {
     for (i = 0; i < 4; i++) {
         document.getElementById('a' + i).innerHTML = quizQuestions[questionKey].answers[i][0];
         document.getElementById('a' + i).setAttribute('value', false);
+    }
+}
+
+function checkTrue(truth) {
+    if (truth === true) {
+        document.getElementById('correct').innerHTML = "Correct! Well done!";
+    } else {
+        document.getElementById('incorrect').innerHTML = "Incorrect! 15 seconds deducted.";
+        countdown = countdown - 15;
     }
 }

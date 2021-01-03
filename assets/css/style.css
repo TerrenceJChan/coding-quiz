@@ -55,6 +55,22 @@ header {
 
 /*MAIN-MENU End*/
 
+/*QUIZ Start*/
+
+#correct, #incorrect {
+    font-size: 2rem;
+}
+
+#correct {
+    color: greenyellow;
+}
+
+#incorrect {
+    color: red;
+}
+
+/*QUIZ End*/
+
 /*FOOTER Start*/
 
 footer {
