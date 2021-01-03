@@ -38,7 +38,7 @@ mainPopulate(mainMenuFile, null);
 var quiz = function () {
     mainPopulate(quizFile, quizPopulate);
 
-    var timer = setInterval(function () {
+    let timer = setInterval(function () {
         if (countdown == 10) {
             document.getElementById('time-remaining').style.color = "red";
         }
@@ -70,4 +70,14 @@ function checkTrue(truth) {
         document.getElementById('incorrect').innerHTML = "Incorrect! 15 seconds deducted.";
         countdown = countdown - 15;
     }
+
+    let messageCountdown = 4;
+    let clearMessage = setInterval(function () {
+        messageCountdown = messageCountdown - 1;
+        if (messageCountdown === 0) {
+            document.getElementById('correct').innerHTML = "";
+            document.getElementById('incorrect').innerHTML = "";
+            clearInterval(messageCountdown);
+        }
+    }, 1000);
 }
