@@ -1,8 +1,12 @@
 var mainMenuFile = "./assets/includes/main-menu.html";
 var quizFile = "./assets/includes/quiz.html";
+var endFile = "./assets/includes/end.html"
 var quizQuestions = null;
 var questionKey = 0;
+var answersCorrect = 0;
+var answersIncorrect = 0;
 var countdown = 999;
+var countdownStopper = false;
 
 // Loads JSON
 function loadJSON(file) {
@@ -48,6 +52,11 @@ var quiz = function () {
             document.getElementById('main').innerText = "You've run out of time!";
         }
 
+        if (countdownStopper == true) {
+            clearInterval(timer);
+            countdownStopper == false;
+        }
+
         document.getElementById('time-remaining').innerText = countdown;
         countdown--;
 
@@ -69,17 +78,24 @@ var quizPopulate = function () {
 
 function checkTrue(truth) {
     if (truth == 'true') {
+        answersCorrect += 1;
         document.getElementById('statement').style.color = "green";
         document.getElementById('statement').innerText = "Correct! Well done!";
     } else {
+        answersIncorrect += 1;
         document.getElementById('statement').style.color = "red";
         document.getElementById('statement').innerText = "Incorrect! 15 seconds deducted.";
         countdown = countdown - 15;
     }
 
     questionKey = questionKey + 1;
+    if (questionKey == quizQuestions.length) {
+        mainPopulate(endFile, endScreen);
+        countdownStopper = true;
+        questionKey = 0;
+        return;
+    }
     mainPopulate(quizFile, quizPopulate);
-
 
     clearMessage();
 }
@@ -93,4 +109,17 @@ function clearMessage() {
         alert('hey');
         clearTimeout(message);
     })
+}
+
+var endScreen = function() {
+    document.getElementById('time-remaining').innerText = "∞";
+    document.getElementById('correct').style.color = "green";
+    document.getElementById('correct').innerText = answersCorrect;
+    document.getElementById('incorrect').style.color = "red";
+    document.getElementById('incorrect').innerText = answersIncorrect;
+    document.getElementById('name').style.resize = "none";
+}
+
+function submitScore() {
+    mainPopulate(quizFile, quizPopulate);
 }

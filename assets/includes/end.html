@@ -1,0 +1,8 @@
+<p>Congratulations! You've completed the quiz!</p>
+<p>You correctly answered <span id="correct"></span> question(s), and <span id="incorrect"></span> incorrectly.</p>
+<br>
+<p>Enter your initials to save your score!</p>
+<form onsubmit="submitScore(); return false">
+    <input type="text" id="name" required  pattern="[A-Za-z]{2,2}" placeholder="Ex. TC">
+    <input type="submit">
+</form>
