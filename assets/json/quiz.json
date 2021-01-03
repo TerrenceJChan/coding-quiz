@@ -67,7 +67,7 @@
     },
     {
         "key": 3,
-        "question": "Commonly used data types do not include:",
+        "question": "What is often used for debugging issues in the console?",
         "answers": [
             [
                 "JavaScript",

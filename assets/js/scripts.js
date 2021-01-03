@@ -3,6 +3,7 @@ var quizFile = "./assets/includes/quiz.html";
 var quizQuestions = null;
 var questionKey = 0;
 var countdown = 999;
+var messageCountdown = 4;
 
 // Loads JSON
 function loadJSON(file) {
@@ -59,25 +60,32 @@ var quizPopulate = function () {
 
     for (i = 0; i < 4; i++) {
         document.getElementById('a' + i).innerHTML = quizQuestions[questionKey].answers[i][0];
-        document.getElementById('a' + i).setAttribute('value', false);
+        if (quizQuestions[questionKey].answers[i][1] == false) {
+            document.getElementById('a' + i).setAttribute('value', false);
+        } else {
+            document.getElementById('a' + i).setAttribute('value', true);
+        }
     }
 }
 
 function checkTrue(truth) {
-    if (truth === true) {
-        document.getElementById('correct').innerHTML = "Correct! Well done!";
+    if (truth == 'true') {
+        document.getElementById('statement').style.color = "green";
+        document.getElementById('statement').innerHTML = "Correct! Well done!";
     } else {
-        document.getElementById('incorrect').innerHTML = "Incorrect! 15 seconds deducted.";
+        document.getElementById('statement').style.color = "red";
+        document.getElementById('statement').innerHTML = "Incorrect! 15 seconds deducted.";
         countdown = countdown - 15;
     }
-
-    let messageCountdown = 4;
-    let clearMessage = setInterval(function () {
-        messageCountdown = messageCountdown - 1;
-        if (messageCountdown === 0) {
-            document.getElementById('correct').innerHTML = "";
-            document.getElementById('incorrect').innerHTML = "";
-            clearInterval(messageCountdown);
-        }
-    }, 1000);
+    questionKey = questionKey + 1;
+    mainPopulate(quizFile, quizPopulate);
 }
+
+var clearMessage = setInterval(function () {
+    messageCountdown = messageCountdown - 1;
+    if (messageCountdown === 0) {
+        document.getElementById('statement').innerHTML = "";
+        messageCountdown = 4;
+        clearInterval(messageCountdown);
+    }
+}, 1000);

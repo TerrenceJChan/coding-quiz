@@ -56,17 +56,9 @@ header {
 /*MAIN-MENU End*/
 
 /*QUIZ Start*/
-
-#correct, #incorrect {
+#statement {
+    text-align: center;
     font-size: 2rem;
-}
-
-#correct {
-    color: greenyellow;
-}
-
-#incorrect {
-    color: red;
 }
 
 /*QUIZ End*/
