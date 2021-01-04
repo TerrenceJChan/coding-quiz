@@ -1,11 +1,12 @@
 var mainMenuFile = "./assets/includes/main-menu.html";
 var quizFile = "./assets/includes/quiz.html";
 var endFile = "./assets/includes/end.html"
+var hiscoreFile = "./assets/includes/hiscores.html";
 var quizQuestions = null;
 var questionKey = 0;
 var answersCorrect = 0;
 var answersIncorrect = 0;
-var countdown = 999;
+var countdown = 90;
 var countdownStopper = false;
 
 // Loads JSON
@@ -104,22 +105,29 @@ function clearMessage() {
     var message = setTimeout(function () {
         document.getElementById('statement').innerText = "";
     }, 4000);
-
-    document.getElementById('a1').addEventListener('click', function () {
-        alert('hey');
-        clearTimeout(message);
-    })
 }
 
-var endScreen = function() {
-    document.getElementById('time-remaining').innerText = "∞";
+var endScreen = function () {
     document.getElementById('correct').style.color = "green";
     document.getElementById('correct').innerText = answersCorrect;
     document.getElementById('incorrect').style.color = "red";
     document.getElementById('incorrect').innerText = answersIncorrect;
     document.getElementById('name').style.resize = "none";
+    document.getElementById('skip').addEventListener('click', function () {
+        location.reload();
+    })
 }
 
 function submitScore() {
-    mainPopulate(quizFile, quizPopulate);
+    let hiscore = [];
+    hiscore.push(document.getElementById('name').value);
+    hiscore.push(answersCorrect);
+    hiscore.push(answersIncorrect);
+    localStorage.setItem('score', hiscore);
+    location.reload();
+    mainPopulate(hiscoreFile, hiscorePopulate);
+}
+
+var hiscorePopulate = function () {
+    
 }
