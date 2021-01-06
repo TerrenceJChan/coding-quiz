@@ -8,6 +8,7 @@ var answersCorrect = 0;
 var answersIncorrect = 0;
 var countdown = 90;
 var countdownStopper = false;
+var hiscore = [];
 
 // Loads JSON
 function loadJSON(file) {
@@ -36,6 +37,11 @@ function mainPopulate(file, callback) {
 }
 
 // Initialization
+if (localStorage.getItem('score') == null) {
+    let initializeArray = [];
+    localStorage.setItem('score', JSON.stringify(initializeArray));
+}
+
 loadJSON("./assets/json/quiz.json");
 mainPopulate(mainMenuFile, null);
 
@@ -119,15 +125,31 @@ var endScreen = function () {
 }
 
 function submitScore() {
-    let hiscore = [];
     hiscore.push(document.getElementById('name').value);
     hiscore.push(answersCorrect);
     hiscore.push(answersIncorrect);
-    localStorage.setItem('score', hiscore);
-    location.reload();
     mainPopulate(hiscoreFile, hiscorePopulate);
 }
 
 var hiscorePopulate = function () {
-    
+    let scoreLocal = localStorage.getItem('score');
+    scoreLocal = JSON.parse(scoreLocal);
+    scoreLocal.push(hiscore);
+
+    const tableDiv = document.getElementById('score-table').getElementsByTagName('tbody')[0];
+
+    for (i = 0; i < scoreLocal.length; i++) {
+        let row = tableDiv.insertRow(-1);
+        cell1 = row.insertCell(0);
+        cell2 = row.insertCell(1);
+        cell3 = row.insertCell(2);
+
+        cell1.innerText = scoreLocal[i][0];
+        cell2.innerText = scoreLocal[i][1];
+        cell3.innerText = scoreLocal[i][2];
+    }
+
+
+
+    localStorage.setItem('score', JSON.stringify(scoreLocal));
 }
