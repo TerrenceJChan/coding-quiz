@@ -107,8 +107,11 @@ function checkTrue(truth) {
     clearMessage();
 }
 
+var message;
+
 function clearMessage() {
-    var message = setTimeout(function () {
+    clearTimeout(message);
+    message = setTimeout(function () {
         document.getElementById('statement').innerText = "";
     }, 4000);
 }
