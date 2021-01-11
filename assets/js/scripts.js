@@ -109,6 +109,7 @@ function checkTrue(truth) {
 
 var message;
 
+// Clears the correct and incorrect message. Disappears after 4 seconds.
 function clearMessage() {
     clearTimeout(message);
     message = setTimeout(function () {
@@ -134,10 +135,14 @@ function submitScore() {
     mainPopulate(hiscoreFile, hiscorePopulate);
 }
 
+// Pushes information to localStorage and displays the information on the high-scores page.
 var hiscorePopulate = function () {
     let scoreLocal = localStorage.getItem('score');
     scoreLocal = JSON.parse(scoreLocal);
-    scoreLocal.push(hiscore);
+    console.log(hiscore);
+    if (hiscore.length != 0) {
+        scoreLocal.push(hiscore);
+    }
 
     const tableDiv = document.getElementById('score-table').getElementsByTagName('tbody')[0];
 
@@ -151,8 +156,5 @@ var hiscorePopulate = function () {
         cell2.innerText = scoreLocal[i][1];
         cell3.innerText = scoreLocal[i][2];
     }
-
-
-
     localStorage.setItem('score', JSON.stringify(scoreLocal));
 }
