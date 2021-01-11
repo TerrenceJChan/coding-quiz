@@ -6,7 +6,7 @@ var quizQuestions = null;
 var questionKey = 0;
 var answersCorrect = 0;
 var answersIncorrect = 0;
-var countdown = 90;
+var countdown = 5;
 var countdownStopper = false;
 var hiscore = [];
 
@@ -41,8 +41,9 @@ if (localStorage.getItem('score') == null) {
     let initializeArray = [];
     localStorage.setItem('score', JSON.stringify(initializeArray));
 }
-
 loadJSON("./assets/json/quiz.json");
+
+// Loads up the main page
 mainPopulate(mainMenuFile, null);
 
 // Quiz populate and countdown.
@@ -53,20 +54,18 @@ var quiz = function () {
         if (countdown == 10) {
             document.getElementById('time-remaining').style.color = "red";
         }
-
         if (countdown == 0) {
             clearInterval(timer);
-            document.getElementById('main').innerText = "You've run out of time!";
+            mainPopulate(endFile, endScreen);
+            document.getElementById('statement').innerText = "You've run out of time!";
+            clearMessage();
         }
-
         if (countdownStopper == true) {
             clearInterval(timer);
             countdownStopper == false;
         }
-
         document.getElementById('time-remaining').innerText = countdown;
         countdown--;
-
     }, 1000);
 }
 

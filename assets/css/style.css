@@ -80,12 +80,16 @@ th, td {
 
 /*FOOTER Start*/
 
-footer {
-    position: fixed;
+#wrapper {
+    position: relative;
+    min-height: 100px;
+}
+
+#footer {
+    position: absolute;
     text-align: center;
     left: 0;
     right: 0;
-    margin: auto;
     bottom: 3%;
 }
 
