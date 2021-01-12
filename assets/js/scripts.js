@@ -6,7 +6,7 @@ var quizQuestions = null;
 var questionKey = 0;
 var answersCorrect = 0;
 var answersIncorrect = 0;
-var countdown = 5;
+var countdown = 90;
 var countdownStopper = false;
 var hiscore = [];
 
